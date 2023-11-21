@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { SearchPerson } from "../../Gateways";
 import { Input } from "../../Components";
 import { personSearchResult } from "../../Interfaces";
+import { set } from "js-cookie";
 
 interface myProps {
   setResultsFunction: (searchResults: personSearchResult[]) => void;
@@ -13,8 +14,9 @@ interface myProps {
 export const SearchByResident = (props: myProps): JSX.Element => {
   const [query, setQuery] = useState(props.query || "");
   const [searching, setIsSearching] = useState<boolean>(false);
+  const [noSearchInputWarning, setNoSearchInputWarning] = useState<boolean>(false);
 
-  const anyFieldFilled: boolean = ![
+  const searchInput: boolean = ![
     query,
   ].every((value) => value === "");
 
@@ -26,6 +28,7 @@ export const SearchByResident = (props: myProps): JSX.Element => {
       "single-spa-application:@mfe/header"
     );
     setQuery("");
+    setNoSearchInputWarning(false);
     header && header.scrollIntoView();
   }
 
@@ -34,6 +37,7 @@ export const SearchByResident = (props: myProps): JSX.Element => {
       handleSearch().then((r) => {
         const section = document.querySelector("#results");
         section?.scrollIntoView();
+      }).finally(() => {
         setIsSearching(false);
       });
       setIsSearching(true);
@@ -66,6 +70,12 @@ export const SearchByResident = (props: myProps): JSX.Element => {
             }}
             onSubmit={(e) => {
               e.preventDefault();
+              
+              if (!searchInput) {
+                setNoSearchInputWarning(true);
+                return;
+              }
+
               setIsSearching(true);
 
               let path = `/search?query=${query.trim()}`;
@@ -81,6 +91,8 @@ export const SearchByResident = (props: myProps): JSX.Element => {
               value={props.query || ""}
               type="text"
               onChange={(e) => setQuery(e.target.value)}
+              error={noSearchInputWarning}
+              errorMsg="Please enter a name or email address"
             />
             {searching ? (
               <div className="sv-spinner">
@@ -103,7 +115,7 @@ export const SearchByResident = (props: myProps): JSX.Element => {
               </div>
             ) : (
               <div className="govuk-button-group">
-                {anyFieldFilled && [
+                {[
                   <button
                     id={"clearSearchButton"}
                     data-testid={"clearSearchButton"}
