@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { SearchPerson } from "../../Gateways";
-import { getCookie } from "../../Utils";
 import { Input } from "../../Components";
 import { personSearchResult } from "../../Interfaces";
 
