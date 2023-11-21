@@ -45,11 +45,6 @@ export enum AuthRoles {
   RestrictedGroup = 'RestrictedGroup',
 }
 
-export enum JigsawStatuses {
-  LoggedIn,
-  Dismissed,
-  None
-}
 
 const roleConfigurations: Record<AuthRoles, Array<string>> = {
   UnrestrictedGroup: [Cypress.env('AUTH_ALLOWED_GROUPS')],
@@ -71,7 +66,6 @@ declare global {
  *
  * @param {string} url The URL to visit. If relative uses `baseUrl`
  * @param {AuthRoles} role The user role to act as for this request
- * @param jigsawStatus
  * @param {VisitOptions} [options] Pass in an options object to change the default behavior of the underlying `cy.visit()` call
  * @example
  *    cy.visitAs('http://localhost:3000', AuthRoles.ChildrensGroup)
@@ -85,7 +79,6 @@ declare global {
 function visitAs (
   url: string, 
   role: AuthRoles,
-  jigsawStatus: JigsawStatuses,
   options?: Partial<Cypress.VisitOptions>
   ) {
     cy.clearCookies();
@@ -95,14 +88,6 @@ function visitAs (
         groups: roleConfigurations[role],
       })
     );
-    switch (jigsawStatus) {
-      case (JigsawStatuses.LoggedIn):
-        cy.setCookie('jigsawToken', 'testValue')
-        break;
-      case (JigsawStatuses.Dismissed):
-        cy.setCookie('jigsawDismissed', 'true')
-        break;
-    }
     cy.visit(url, options);
   }
 

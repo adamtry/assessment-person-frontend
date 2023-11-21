@@ -10,7 +10,7 @@ export const SearchResultsGroup = (props: Props): JSX.Element => {
     <>
       {props.results.map((person: personSearchResult, index: number) => {
         return (
-          <div className="lbh-body sv-result-wrapper" key={index}>
+          <div className="lbh-body sv-result-wrapper" key={index} data-testid={`result-person-${person.id}`}>
             <div className="sv-result-sub-wrapper">
               <div className="sv-result">
                 <strong>

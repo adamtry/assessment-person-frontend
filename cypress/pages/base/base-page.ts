@@ -1,4 +1,4 @@
-import { AuthRoles, JigsawStatuses } from "../../support/commands";
+import { AuthRoles } from "../../support/commands";
 
 export class BasePage {
 	pageUrl: string;
@@ -7,17 +7,9 @@ export class BasePage {
 		this.pageUrl = pageUrl;
 	}
 
-	baseElements = {
-		getJigsawLoginLinkHeader: () => cy.get('[data-testid="jigsawLoginHeader"]'),
-		getJigsawLogoutLinkHeader: () => cy.get('[data-testid="jigsawLogoutHeader"]')
-	}
+	baseElements = {}
 
-	visit(role?: AuthRoles, jigsawLoggedIn?: JigsawStatuses, options?: Partial<Cypress.VisitOptions>) {
-		if (role == null) {
-			cy.clearCookies()
-			cy.visit(this.pageUrl)
-		} else {
-			cy.visitAs(this.pageUrl, role, jigsawLoggedIn, options)
-		}
+	visit(role?: AuthRoles, options?: Partial<Cypress.VisitOptions>) {
+		cy.visitAs(this.pageUrl, role, options);
 	}
 }
