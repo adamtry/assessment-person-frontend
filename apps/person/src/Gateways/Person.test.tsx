@@ -1,6 +1,5 @@
 import { getPerson } from "./Person";
 import axios from "axios";
-import { Housing } from "../Interfaces";
 jest.mock("axios", () => {
   return {
     get: jest.fn(),

@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  housingSearchPerson,
-  mapRecordsToMatchedRecord,
-  personSearchResult,
-} from "../../Interfaces";
+import { personSearchResult } from "../../Interfaces";
 import { Pagination } from "../../Components";
-import { mergeRecords } from "../../Gateways/recordsGateway";
-import { ErrorSummary } from "@mfe/common/lib/components";
 import { SearchResultsGroup } from "../../Components/SearchResultsGroup";
 
 interface myProps {
