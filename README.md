@@ -55,11 +55,13 @@ From the root directory in the terminal, run:
 This may take some time to run the first time.
 
 ### Add environment variables:
-Copy the `apps/root/.env.sample` into an `.env` file in the same directory
+Copy the `apps/root/.env.sample` into an `.env` file in the same directory if you want to reconfigure the API URL
 
 Ensure the `API_URL` is set to the url of the running [Person API](https://github.com/adamtry/assessment-person-api) (default localhost:3000)
 
 ## Running it locally
+
+*Warning:* Realistically, this application needs at least 16GB of total RAM to run smoothly locally (uses at least 8GB), including the API. This could be reduced in future by deploying some of the microfrontends and connecting to them remotely.
 
 Run the application with `yarn start`
 
