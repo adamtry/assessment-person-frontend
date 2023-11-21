@@ -3,7 +3,6 @@ import { personSearchResult } from "../Interfaces";
 
 interface Props {
   results: personSearchResult[];
-  setUnmergeError: () => void;
 }
 
 export const SearchResultsGroup = (props: Props): JSX.Element => {

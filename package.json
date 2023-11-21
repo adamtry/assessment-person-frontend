@@ -3,22 +3,16 @@
   "scripts": {
     "start": "concurrently \"yarn root\" \"yarn header\" \"yarn person\"",
     "install-all": "yarn install && yarn install-root && yarn install-header && yarn install-person",
-    "lint": "yarn lint-root && yarn lint-person",
+    "lint": "cd apps/person && yarn lint",
     "test": "yarn test-person",
-    "e2e": "start-server-and-test start http://localhost:9000 cypress:run",
-    "prepare": "husky install",
+    "e2e": "yarn cypress:run",
     "root": "cd apps/root && yarn start",
-    "lint-root": "cd apps/root && yarn lint",
     "install-root": "cd apps/root && yarn",
     "header": "cd apps/header && yarn start",
     "install-header": "cd apps/header && yarn",
     "person": "cd apps/person && yarn start",
-    "lint-person": "cd apps/person && yarn lint",
     "install-person": "cd apps/person && yarn",
     "test-person": "cd apps/person && yarn test",
-    "format": "yarn format-root && yarn format-person",
-    "format-root": "cd apps/root && yarn format",
-    "format-person": "cd apps/person && yarn format",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
@@ -31,7 +25,6 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "jsonwebtoken": "^8.5.1",
-    "react-scripts": "^5.0.1",
-    "start-server-and-test": "^1.14.0"
+    "react-scripts": "^5.0.1"
   }
 }

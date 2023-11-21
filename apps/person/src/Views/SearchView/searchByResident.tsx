@@ -87,8 +87,8 @@ export const SearchByResident = (props: myProps): JSX.Element => {
           >
             <Input
               label="Search for a person"
-              id="firstName"
-              name="firstName"
+              id="searchField"
+              name="searchField"
               value={props.query || ""}
               type="text"
               onChange={(e) => setQuery(e.target.value)}

@@ -27,17 +27,8 @@ export const SearchResults = (props: myProps): JSX.Element => {
     sliceIntoChunks(props.results, props.maxSearchResults)[0]
   );
 
-  const [selectedRecords, setSelectedRecords] = useState<personSearchResult[]>(
-    []
-  );
-  const [mergeError, setMergeError] = useState<string | null>(null);
-  const [unMergeError, setUnmergeError] = useState<string | null>(null);
-
   useEffect(() => {
-    setMergeError(null);
-    setUnmergeError(null);
     setResults(sliceIntoChunks(props.results, props.maxSearchResults)[0]);
-    setSelectedRecords([]);
   }, [props.results, props.maxSearchResults]);
 
   const [splitResults] = useState<personSearchResult[][]>(
@@ -52,48 +43,7 @@ export const SearchResults = (props: myProps): JSX.Element => {
     }
   };
 
-  const displayUnmergeError = () => {
-    setUnmergeError("Error unmerging selected record. Please try again.");
-  };
-
-  const mergeSelectedRecords = async (records: housingSearchPerson[]) => {
-    const mappedMatchedRecord = mapRecordsToMatchedRecord(records);
-    if (mappedMatchedRecord.error != null) {
-      // @ts-ignore
-      return setMergeError(mappedMatchedRecord.error);
-    }
-    try {
-      setMergeError(null);
-      // @ts-ignore
-      const sv_id = await mergeRecords(mappedMatchedRecord.matchedRecord);
-      return (window.location.href = `/customers/single-view/${sv_id}`);
-    } catch (e) {
-      setMergeError("Unable to create merged record. Please search again.");
-    }
-  };
-
   let numberOfResults = props.results.length;
-
-  function clearSearchFields() {
-    window.history.pushState({}, document.title, "/search");
-    const fieldIds = [
-      "firstName",
-      "lastName",
-      "addressLine1",
-      "postcode",
-      "dateOfBirth",
-    ];
-    for (let i = 0; i < fieldIds.length; i++) {
-      let field = document.getElementById(fieldIds[i]) as HTMLInputElement;
-      if (field) {
-        field.value = "";
-      }
-    }
-    const header = document.getElementById(
-      "single-spa-application:@mfe/header"
-    );
-    header && header.scrollIntoView();
-  }
 
   return (
     <div className="govuk-grid-row">
@@ -101,27 +51,12 @@ export const SearchResults = (props: myProps): JSX.Element => {
         <div className="sv-group">
           <h2 className="lbh-heading-h3 govuk-!-margin-top-7">{`${numberOfResults} results found`}</h2>
         </div>
-        {mergeError && (
-          <ErrorSummary
-            id="singleViewMergeError"
-            title="Error"
-            description={mergeError}
-          />
-        )}
-        {unMergeError && (
-          <ErrorSummary
-            id="singleViewMergeError"
-            title="Error"
-            description={unMergeError}
-          />
-        )}
         <hr />
         <div id="searchResults">
           {results &&
             results.length > 0 && [
               <SearchResultsGroup
                 results={results}
-                setUnmergeError={displayUnmergeError}
               />,
             ]}
         </div>
