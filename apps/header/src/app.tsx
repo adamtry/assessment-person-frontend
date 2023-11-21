@@ -3,7 +3,6 @@ import { Link as RouterLink } from "react-router-dom";
 
 import { $auth, isAuthorised, logout } from "@mfe/common/lib/auth";
 import { Link, PhaseBanner } from "@mfe/common/lib/components";
-import Cookies from "js-cookie";
 
 import { locale } from "./services";
 

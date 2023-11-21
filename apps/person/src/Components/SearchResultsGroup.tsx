@@ -7,7 +7,6 @@ interface Props {
 }
 
 export const SearchResultsGroup = (props: Props): JSX.Element => {
-
   return (
     <>
       {props.results.map((person: personSearchResult, index: number) => {
@@ -25,13 +24,13 @@ export const SearchResultsGroup = (props: Props): JSX.Element => {
                 </div>
               </div>
             </div>
-              <a
-                className="govuk-button"
-                data-testid={`view-${person.id}`}
-                href={`/person/${person.id}`}
-              >
-                View
-              </a>
+            <a
+              className="govuk-button"
+              data-testid={`view-${person.id}`}
+              href={`/person/${person.id}`}
+            >
+              View
+            </a>
           </div>
         );
       })}

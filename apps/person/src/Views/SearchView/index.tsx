@@ -29,12 +29,7 @@ export const SearchView = (props: Props): JSX.Element => {
         query={props.query}
       />
       <div id="results">
-        {results && (
-          <SearchResults
-            results={results}
-            maxSearchResults={10}
-          />
-        )}
+        {results && <SearchResults results={results} maxSearchResults={10} />}
       </div>
     </>
   );

@@ -1,20 +1,17 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPerson } from "../../Gateways";
-import {
-  UrlParams,
-  personSearchResult,
-} from "../../Interfaces";
+import { UrlParams, personSearchResult } from "../../Interfaces";
 import { DescriptionListItem, NotFound } from "../../Components";
 import { BackToSearch } from "../../Components/BackToSearch";
 
-
 export const PersonView = () => {
+  let { id } = useParams<UrlParams>();
+  const [person, setPerson] = useState<personSearchResult | null>();
+
   useEffect(() => {
     loadPerson();
   }, []);
-  let { id } = useParams<UrlParams>();
-  const [person, setPerson] = useState<personSearchResult | null>();
 
   const loadPerson = async (): Promise<personSearchResult | null> => {
     try {
@@ -52,17 +49,14 @@ export const PersonView = () => {
           </a>
         </div>
 
-        <h1>{person?.firstName} {person?.lastName}</h1>
-        <DescriptionListItem
-          title={"Email"}
-          testId={"emailField"}>
-            {person?.email}
-          </DescriptionListItem>
-          <DescriptionListItem
-            title={"Gender"}
-            testId={"genderField"}
-          >
-            {person?.gender}
+        <h1>
+          {person?.firstName} {person?.lastName}
+        </h1>
+        <DescriptionListItem title={"Email"} testId={"emailField"}>
+          {person?.email}
+        </DescriptionListItem>
+        <DescriptionListItem title={"Gender"} testId={"genderField"}>
+          {person?.gender}
         </DescriptionListItem>
       </div>
     </>

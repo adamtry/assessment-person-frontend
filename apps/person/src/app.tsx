@@ -30,14 +30,10 @@ const App = (): JSX.Element => {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Redirect
-              to={"/search"}
-            />
+            <Redirect to={"/search"} />
           </Route>
           <Route path="/search">
-            <SearchView
-              query={query.get("query")}
-            />
+            <SearchView query={query.get("query")} />
           </Route>
           <Route path="/person/:id">
             <PersonView />

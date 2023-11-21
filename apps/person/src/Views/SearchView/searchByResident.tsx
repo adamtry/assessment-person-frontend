@@ -14,11 +14,10 @@ interface myProps {
 export const SearchByResident = (props: myProps): JSX.Element => {
   const [query, setQuery] = useState(props.query || "");
   const [searching, setIsSearching] = useState<boolean>(false);
-  const [noSearchInputWarning, setNoSearchInputWarning] = useState<boolean>(false);
+  const [noSearchInputWarning, setNoSearchInputWarning] =
+    useState<boolean>(false);
 
-  const searchInput: boolean = ![
-    query,
-  ].every((value) => value === "");
+  const searchInput: boolean = ![query].every((value) => value === "");
 
   const history = useHistory();
 
@@ -34,12 +33,14 @@ export const SearchByResident = (props: myProps): JSX.Element => {
 
   function searchForPerson() {
     if (query) {
-      handleSearch().then((r) => {
-        const section = document.querySelector("#results");
-        section?.scrollIntoView();
-      }).finally(() => {
-        setIsSearching(false);
-      });
+      handleSearch()
+        .then((r) => {
+          const section = document.querySelector("#results");
+          section?.scrollIntoView();
+        })
+        .finally(() => {
+          setIsSearching(false);
+        });
       setIsSearching(true);
     }
   }
@@ -47,7 +48,7 @@ export const SearchByResident = (props: myProps): JSX.Element => {
   const handleSearch = async () => {
     try {
       let searchResults = await SearchPerson({
-        query: query.trim()
+        query: query.trim(),
       });
       props.setResultsFunction(searchResults);
       setIsSearching(false);
@@ -70,7 +71,7 @@ export const SearchByResident = (props: myProps): JSX.Element => {
             }}
             onSubmit={(e) => {
               e.preventDefault();
-              
+
               if (!searchInput) {
                 setNoSearchInputWarning(true);
                 return;
