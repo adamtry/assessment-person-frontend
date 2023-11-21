@@ -83,10 +83,7 @@ Run unit tests with `yarn test`
 
 ## Committing to GitHub
 ### Linting
-By default, Husky will run a lint check before each commit and prevent the commit if this fails.
-
-These failures can often be resolved automatically by opening a terminal, `cd`-ing into the /app/single-view directory, then running `yarn lint:fix`
-
+Run the linter with `yarn lint`
 
 ## Resources
 

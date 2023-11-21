@@ -3,7 +3,7 @@
   "scripts": {
     "start": "concurrently \"yarn root\" \"yarn header\" \"yarn person\" \"yarn auth\" \"yarn common\"",
     "install-all": "yarn install && yarn install-root && yarn install-header && yarn install-person && yarn install-auth && yarn install-common",
-    "lint": "cd apps/person && yarn lint",
+    "lint": "cd apps/person && yarn lint --fix",
     "test": "cd apps/person && yarn test",
     "root": "cd apps/root && yarn start",
     "install-root": "cd apps/root && yarn",
