@@ -22,7 +22,7 @@ export const SearchView = (props: Props): JSX.Element => {
   return (
     <>
       <h1 className="lbh-heading-h1">
-        {results ? "Search results for" : "Search person information"}
+        {results ? "Search results" : "Search person information"}
       </h1>
       <SearchByResident
         setResultsFunction={setResultsFunction}
