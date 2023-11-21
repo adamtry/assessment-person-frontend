@@ -56,7 +56,10 @@ export interface sourceServiceArea {
   isDefault: boolean;
 }
 
-export interface housingSearchResults {
-  matchedResults: housingSearchPerson[];
-  otherResults: housingSearchPerson[];
+export interface personSearchResult {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
 }

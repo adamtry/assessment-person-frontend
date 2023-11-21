@@ -1,3 +1,2 @@
-export * from "./CustomerView";
+export * from "./PersonView";
 export * from "./SearchView";
-export * from "./JigsawLogin";

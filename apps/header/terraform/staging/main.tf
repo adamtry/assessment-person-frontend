@@ -34,11 +34,11 @@ module "cloudfront-staging" {
   origin_id = "single-view-header-frontend"
   s3_bucket_arn = aws_s3_bucket.frontend-bucket-staging.arn
   s3_bucket_id = aws_s3_bucket.frontend-bucket-staging.id
-  orginin_access_identity_desc = "Single view frontend cloudfront identity"
+  orginin_access_identity_desc = "Person Viewer frontend cloudfront identity"
   cname_aliases = []
   environment_name = "staging"
   cost_code = "B0811"
-  project_name = "Single View"
+  project_name = "Person Viewer"
   use_cloudfront_cert = true
   compress = true
 }

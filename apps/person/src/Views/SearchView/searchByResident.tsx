@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { SearchResident } from "../../Gateways";
-import { housingSearchResults } from "../../Interfaces";
+import { SearchPerson } from "../../Gateways";
 import { getCookie } from "../../Utils";
 import { Input } from "../../Components";
+import { personSearchResult } from "../../Interfaces";
 
 interface myProps {
-  setResultsFunction: (searchResults: housingSearchResults) => void;
+  setResultsFunction: (searchResults: personSearchResult[]) => void;
   firstName: string | null;
   lastName: string | null;
   addressLine1: string | null;
@@ -84,7 +84,7 @@ export const SearchByResident = (props: myProps): JSX.Element => {
     }
 
     try {
-      let searchResults = await SearchResident({
+      let searchResults = await SearchPerson({
         firstName: firstName.trim(),
         lastName: lastName.trim(),
         address: joinAddresses(),

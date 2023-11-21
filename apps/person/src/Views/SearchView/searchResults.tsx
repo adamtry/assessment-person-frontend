@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   housingSearchPerson,
   mapRecordsToMatchedRecord,
+  personSearchResult,
 } from "../../Interfaces";
 import { Pagination } from "../../Components";
 import { mergeRecords } from "../../Gateways/recordsGateway";
@@ -9,8 +10,7 @@ import { ErrorSummary } from "@mfe/common/lib/components";
 import { SearchResultsGroup } from "../../Components/SearchResultsGroup";
 
 interface myProps {
-  matchedResults: housingSearchPerson[] | undefined;
-  otherResults: housingSearchPerson[];
+  results: personSearchResult[];
   maxSearchResults: number;
 }
 
@@ -23,34 +23,26 @@ export const SearchResults = (props: myProps): JSX.Element => {
     }
     return res;
   };
-  const [splitResults] = useState<housingSearchPerson[][]>(
-    sliceIntoChunks(props.otherResults, props.maxSearchResults)
+  const [results, setResults] = useState<personSearchResult[]>(
+    sliceIntoChunks(props.results, props.maxSearchResults)[0]
   );
-  const [results, setResults] = useState<housingSearchPerson[]>(
-    sliceIntoChunks(props.otherResults, props.maxSearchResults)[0]
-  );
-  const [matchedResults, setMatchedResults] = useState<housingSearchPerson[]>();
 
-  const [selectedRecords, setSelectedRecords] = useState<housingSearchPerson[]>(
+  const [selectedRecords, setSelectedRecords] = useState<personSearchResult[]>(
     []
   );
   const [mergeError, setMergeError] = useState<string | null>(null);
   const [unMergeError, setUnmergeError] = useState<string | null>(null);
 
-  const mergedRecords = props.matchedResults?.filter(
-    (matchedResult) => matchedResult.isMergedSingleViewRecord
-  );
-  const matchedResultsWithoutMergedRecords = props.matchedResults?.filter(
-    (matchedResult) => !matchedResult.isMergedSingleViewRecord
-  );
-
   useEffect(() => {
     setMergeError(null);
     setUnmergeError(null);
-    setResults(sliceIntoChunks(props.otherResults, props.maxSearchResults)[0]);
+    setResults(sliceIntoChunks(props.results, props.maxSearchResults)[0]);
     setSelectedRecords([]);
-    setMatchedResults(matchedResultsWithoutMergedRecords);
-  }, [props.otherResults, props.matchedResults, props.maxSearchResults]);
+  }, [props.results, props.maxSearchResults]);
+
+  const [splitResults] = useState<personSearchResult[][]>(
+    sliceIntoChunks(props.results, props.maxSearchResults)
+  );
 
   const onPageChange = (currentPage: number, isNext: boolean) => {
     if (isNext) {
@@ -62,20 +54,6 @@ export const SearchResults = (props: myProps): JSX.Element => {
 
   const displayUnmergeError = () => {
     setUnmergeError("Error unmerging selected record. Please try again.");
-  };
-
-  const selectMatch = (person: housingSearchPerson) => {
-    if (!person.isSelected) {
-      person.isSelected = true;
-      setSelectedRecords([...selectedRecords, person]);
-    } else {
-      setSelectedRecords(
-        selectedRecords.filter((p) => {
-          return p != person;
-        })
-      );
-      person.isSelected = false;
-    }
   };
 
   const mergeSelectedRecords = async (records: housingSearchPerson[]) => {
@@ -94,11 +72,7 @@ export const SearchResults = (props: myProps): JSX.Element => {
     }
   };
 
-  let numberOfResults = props.otherResults.length;
-
-  if (props.matchedResults) {
-    numberOfResults += props.matchedResults.length;
-  }
+  let numberOfResults = props.results.length;
 
   function clearSearchFields() {
     window.history.pushState({}, document.title, "/search");
@@ -135,7 +109,7 @@ export const SearchResults = (props: myProps): JSX.Element => {
                 ? "govuk-button lbh-button lbh-button--disabled govuk-button--disabled"
                 : "govuk-button lbh-button"
             }
-            onClick={() => mergeSelectedRecords(selectedRecords)}
+            onClick={() => console.log("Delete me!")}
           >
             Merge {selectedRecords?.length} records
           </button>
@@ -156,30 +130,15 @@ export const SearchResults = (props: myProps): JSX.Element => {
         )}
         <hr />
 
-        <div id="mergedRecords">
-          {mergedRecords &&
-            mergedRecords.length > 0 && [
-              <h4 className="lbh-heading-h4">
-                The following results were merged and saved in single view:
-              </h4>,
-              <SearchResultsGroup
-                results={mergedRecords}
-                selectMatch={selectMatch}
-                setUnmergeError={displayUnmergeError}
-              />,
-            ]}
-        </div>
-
         <div id="matchedResults">
-          {matchedResults &&
-            matchedResults.length > 0 && [
+          {results &&
+            results.length > 0 && [
               <h4 className="lbh-heading-h4">
                 The following results were matched on name and date of birth, if
                 provided:
               </h4>,
               <SearchResultsGroup
-                results={matchedResults}
-                selectMatch={selectMatch}
+                results={results}
                 setUnmergeError={displayUnmergeError}
               />,
             ]}
@@ -192,14 +151,13 @@ export const SearchResults = (props: myProps): JSX.Element => {
               </h4>,
               <SearchResultsGroup
                 results={results}
-                selectMatch={selectMatch}
                 setUnmergeError={displayUnmergeError}
               />,
             ]}
         </div>
         {numberOfResults > 0 && (
           <Pagination
-            total={props.otherResults.length}
+            total={props.results.length}
             onPageChange={onPageChange}
             pageSize={props.maxSearchResults}
           />

@@ -34,11 +34,11 @@ module "cloudfront-production" {
   origin_id = "single-view-frontend"
   s3_bucket_arn = aws_s3_bucket.frontend-bucket-production.arn
   s3_bucket_id = aws_s3_bucket.frontend-bucket-production.id
-  orginin_access_identity_desc = "Single View frontend cloudfront identity"
+  orginin_access_identity_desc = "Person Viewer frontend cloudfront identity"
   cname_aliases = []
   environment_name = "production"
   cost_code = "B0811"
-  project_name = "Single View"
+  project_name = "Person Viewer"
   use_cloudfront_cert = true
   compress = true
 }

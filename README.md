@@ -61,6 +61,8 @@ The app URLs are already set up for you, and are not considered secrets. See the
 
 ## Running it locally
 
+# TODO: Explain CORS fix
+
 Run the application with `yarn start`
 
 Load `http://local.hackney.gov.uk:9000` in your browser

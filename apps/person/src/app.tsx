@@ -6,7 +6,7 @@ import {
   Redirect,
   useLocation,
 } from "react-router-dom";
-import { CustomerView, SearchView, JigsawLoginView } from "./Views";
+import { CustomerView, SearchView } from "./Views";
 
 import "./app.scss";
 import { NotFound } from "./Components";
@@ -17,14 +17,6 @@ const App = (): JSX.Element => {
       require("lbh-frontend").initAll();
     }
   }, []);
-
-  const hasInteractedWithJigsaw = (): boolean => {
-    const dismissed = document.cookie.indexOf("jigsawDismissed=true") !== -1;
-    const jigsawTokenSet = document.cookie.indexOf("jigsawToken=") !== -1;
-
-    return dismissed || jigsawTokenSet;
-  };
-
   function useQuery() {
     const { search } = useLocation();
 
@@ -39,24 +31,17 @@ const App = (): JSX.Element => {
         <Switch>
           <Route exact path="/">
             <Redirect
-              to={hasInteractedWithJigsaw() ? "/search" : "jigsawLogin"}
+              to={"/search"}
             />
           </Route>
           <Route path="/search">
-            {hasInteractedWithJigsaw() ? (
-              <SearchView
-                firstName={query.get("firstName")}
-                lastName={query.get("lastName")}
-                dateOfBirth={query.get("dateOfBirth")}
-                addressLine1={query.get("addressLine1")}
-                postCode={query.get("postCode")}
-              />
-            ) : (
-              <Redirect to="/jigsawLogin" />
-            )}
-          </Route>
-          <Route path="/jigsawLogin">
-            <JigsawLoginView />
+            <SearchView
+              firstName={query.get("firstName")}
+              lastName={query.get("lastName")}
+              dateOfBirth={query.get("dateOfBirth")}
+              addressLine1={query.get("addressLine1")}
+              postCode={query.get("postCode")}
+            />
           </Route>
           <Route path="/customers/:dataSource/:id">
             <CustomerView />

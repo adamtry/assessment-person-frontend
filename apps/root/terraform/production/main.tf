@@ -28,11 +28,11 @@ module "cloudfront-production" {
   origin_id = "single-view-root-frontend"
   s3_bucket_arn = aws_s3_bucket.frontend-bucket-production.arn
   s3_bucket_id = aws_s3_bucket.frontend-bucket-production.id
-  orginin_access_identity_desc = "Single View root frontend cloudfront identity"
+  orginin_access_identity_desc = "Person Viewer root frontend cloudfront identity"
   cname_aliases = ["single-view.hackney.gov.uk"]
   environment_name = "production"
   cost_code = "B0811"
-  project_name = "Single View"
+  project_name = "Person Viewer"
   use_cloudfront_cert = false
   hackney_cert_arn = "arn:aws:acm:us-east-1:492942404536:certificate/eafddce3-0259-4382-bc02-d5207b2a31f3"
   compress = true

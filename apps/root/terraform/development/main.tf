@@ -29,11 +29,11 @@ module "cloudfront-development" {
   origin_id = "single-view-root-frontend"
   s3_bucket_arn = aws_s3_bucket.frontend-bucket-development.arn
   s3_bucket_id = aws_s3_bucket.frontend-bucket-development.id
-  orginin_access_identity_desc = "Single view root frontend cloudfront identity"
+  orginin_access_identity_desc = "Person Viewer root frontend cloudfront identity"
   cname_aliases = ["single-view-development.hackney.gov.uk"]
   environment_name = "development"
   cost_code = "B0811"
-  project_name = "Single View"
+  project_name = "Person Viewer"
   hackney_cert_arn = "arn:aws:acm:us-east-1:467644390825:certificate/116f2c69-af89-46ac-9f2d-5d2db329f57a"
   use_cloudfront_cert = false
   compress = true

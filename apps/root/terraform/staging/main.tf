@@ -29,11 +29,11 @@ module "cloudfront-staging" {
   origin_id = "single-view-root-frontend"
   s3_bucket_arn = aws_s3_bucket.frontend-bucket-staging.arn
   s3_bucket_id = aws_s3_bucket.frontend-bucket-staging.id
-  orginin_access_identity_desc = "Single view frontend cloudfront identity"
+  orginin_access_identity_desc = "Person Viewer frontend cloudfront identity"
   cname_aliases = ["single-view-staging.hackney.gov.uk"]
   environment_name = "staging"
   cost_code = "B0811"
-  project_name = "Single View"
+  project_name = "Person Viewer"
   hackney_cert_arn = "arn:aws:acm:us-east-1:163959497493:certificate/97f8d5f9-f0d7-47d9-b5b5-a28e55df3eba"
   use_cloudfront_cert = false
   compress = true

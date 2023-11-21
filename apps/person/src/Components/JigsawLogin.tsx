@@ -71,7 +71,7 @@ export const JigsawLogin = () => {
             </div>
             <div className="govuk-notification-banner__content">
               Please use your Jigsaw username & password to log in, granting you
-              access to the data presented in Single view from Jigsaw.
+              access to the data presented in Person Viewer from Jigsaw.
               <br />
               <a
                 href="/search"

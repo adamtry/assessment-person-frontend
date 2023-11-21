@@ -29,7 +29,7 @@ export const NoteInput = (props: Props): JSX.Element => {
     }
 
     let categorisation = {
-      category: "Single View",
+      category: "Person Viewer",
       subCategory: subCategory,
       description: null,
     };
