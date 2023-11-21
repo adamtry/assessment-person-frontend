@@ -55,36 +55,20 @@ This may take some time to run the first time.
 
 ### Add environment variables:
 Copy the `apps/root/.env.sample` into an `.env` file in the same directory
-The app URLs are already set up for you, and are not considered secrets. See the [MTFH Root Microfrontend](https://github.com/LBHackney-IT/mtfh-frontend-root/blob/main/.env.sample)
 
-### Allow CORS to connect to the remote microfrontends from the domains in .env
-The "authentication" and "common" microfrontends should be connected to from the Hackney CDN, which is not configured to allow CORS requests from local.hackney.gov.uk. To get around this, you can use a browser extension to allow CORS requests from local.hackney.gov.uk.
-
-Recommended extension is Cross Domain - CORS
-
-[Chrome Link](https://chrome.google.com/webstore/detail/cross-domain-cors/mjhpgnbimicffchbodmgfnemoghjakai)
-
-[Firefox Link](https://addons.mozilla.org/en-GB/firefox/addon/cross-domain-cors)
-
-To set this extension up, open the extension settings and add the following regex under the Apply Urls:
-
-`.*cloudfront.*`
-
-This matches all of the microfrontends being served from cloudfront.
-
-Ensure the extension is enabled and click "Save"
+Ensure the `API_URL` is set to the url of the running [Person API](https://github.com/adamtry/assessment-person-api)
 
 ## Running it locally
 
 Run the application with `yarn start`
 
-This will run the "root", "header", and "person" microfrontends locally, and connect to the "authentication" and "common" microfrontends on the Hackney CDN.
+This will run the "root", "header", "auth", "common", and "person" microfrontends locally.
 
 Load `http://local.hackney.gov.uk:9000` in your browser
 
-If nothing appears, ensure your environment variables are set up correctly, and that you have CORS enabled for `.*cloudfront.*` in your browser extension.
+If nothing appears, ensure your environment variables are set up correctly.
 
-You can change which API you're pointing to from the `.env` file in `apps/single-view`
+You can change which API you're pointing to from the `.env` file in `apps/person`
 
 ## Running Cypress tests
 
