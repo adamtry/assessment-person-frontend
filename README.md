@@ -1,7 +1,6 @@
 # Person Frontend
 
-This is the frontend for the person display system, a monorepo built on micro
-frontends taken from Hackney's [Single View](https://github.com/LBHackney-IT/single-view-frontend) application and ultimately from the @mtfh scope.
+This is the frontend for the person display system, a monorepo built on micro frontends taken from Hackney's [Single View](https://github.com/LBHackney-IT/single-view-frontend) application and ultimately from the @mtfh scope.
 
 <hr>
 
@@ -58,7 +57,7 @@ This may take some time to run the first time.
 ### Add environment variables:
 Copy the `apps/root/.env.sample` into an `.env` file in the same directory
 
-Ensure the `API_URL` is set to the url of the running [Person API](https://github.com/adamtry/assessment-person-api)
+Ensure the `API_URL` is set to the url of the running [Person API](https://github.com/adamtry/assessment-person-api) (default localhost:3000)
 
 ## Running it locally
 

@@ -33,7 +33,7 @@ module.exports = (webpackConfigEnv, argv) => {
     plugins: [
       new webpack.EnvironmentPlugin({
         APP_ENV: process.env.APP_ENV || "development",
-        API_URL: process.env.API_URL || 'http://localhost:5000/api/v1'
+        API_URL: process.env.API_URL || 'http://localhost:3000/api/v1'
       }),
       new ImportMapWebpackPlugin({
         namespace: "@mfe",
