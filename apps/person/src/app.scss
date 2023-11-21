@@ -1,0 +1,114 @@
+$lbh-asset-path: "../node_modules/lbh-frontend/dist/assets";
+
+@import "node_modules/lbh-frontend/lbh/all";
+@import "node_modules/govuk-frontend/govuk/overrides/all";
+
+@import "node_modules/govuk-frontend/govuk/components/notification-banner";
+
+.no-underline {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.align-right {
+  float: right;
+}
+
+.govuk-notification-banner__content {
+  margin-top: 0;
+}
+
+.govuk-error-colour {
+  color: #d4351c;
+}
+
+.sv-spinner {
+  display: inline-block;
+  align-items: left;
+  margin-left: 10px;
+  width: 100%;
+  min-height: 100%;
+
+  svg {
+    display: inline-block;
+    flex-shrink: 0;
+    color: currentColor;
+    line-height: 1rem;
+    vertical-align: middle;
+    transform-origin: center center;
+    animation: rotate 1s linear infinite;
+  }
+}
+
+.sv-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sv-result-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sv-result-sub-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.sv-result {
+  margin: initial;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.sv-checkboxes {
+  height: 44px;
+  width: 44px;
+  margin-top: 10px;
+}
+
+.sv-null-field {
+  font-weight: 500;
+  color: #8c9296;
+}
+
+.contact-detail {
+  text-transform: capitalize;
+}
+
+.lbh-tag {
+  margin: auto;
+  font-size: medium;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: inherit;
+  padding-bottom: inherit;
+}
+
+.sv-buttons-wrapper{
+  display: flex;
+  flex-direction: row;
+  margin-top: 0 !important;
+}
+
+.sv-unmerge-button {
+  margin-top: 0 !important;
+  margin-bottom: auto !important;
+  border-radius: 4px
+}
+
+.sv-table {
+  min-width: max-content;
+}
+.sv-table-heading {
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.sv-details {
+  font-size: 16px !important;
+}
