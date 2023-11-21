@@ -4,7 +4,7 @@ import {
 } from "../Interfaces";
 import { getToken } from "../Utils/getHackneyToken";
 
-export const getPerson = async (id: string): Promise<personSearchResult | undefined> => {
+export const getPerson = async (id: string): Promise<personSearchResult | null> => {
   try {
     let response = await axios.get(
       `${process.env.API_URL}/residents/all`,
@@ -22,8 +22,10 @@ export const getPerson = async (id: string): Promise<personSearchResult | undefi
       throw new Error("Error retrieving person");
     }
 
+    if (!person) { return null }
+
     return person;
   } catch (e) {
-    return undefined;
+    return null;
   }
 };
