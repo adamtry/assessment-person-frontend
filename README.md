@@ -70,6 +70,11 @@ If nothing appears, ensure your environment variables are set up correctly.
 
 You can change which API you're pointing to from the `.env` file in `apps/person`
 
+## Running Jest unit tests
+
+Run unit tests with `yarn test`
+
+
 ## Running Cypress tests
 
  -- TODO --
