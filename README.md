@@ -1,7 +1,7 @@
 # Person Frontend
 
-This is the frontend for the person display system, a monorepo comprising micro
-frontends taken from Single View and ultimately the @mtfh scope and repurposed for this application.
+This is the frontend for the person display system, a monorepo built on micro
+frontends taken from Hackney's [Single View](https://github.com/LBHackney-IT/single-view-frontend) application and ultimately from the @mtfh scope.
 
 <hr>
 
