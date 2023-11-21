@@ -77,11 +77,6 @@ You can change which API you're pointing to from the `.env` file in `apps/person
 
 Run unit tests with `yarn test`
 
-
-## Running Cypress tests
-
- -- TODO --
-
 ## Committing to GitHub
 ### Linting
 Run the linter with `yarn lint`
