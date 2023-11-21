@@ -37,7 +37,9 @@ Open your hosts file, which on **Linux** and **macOS** can be done by running:
 
 `sudo open /etc/hosts`
 
-On **Windows** the hosts file can be found at **c:\Windows\System32\Drivers\etc\hosts**
+or opening the file directly with root access
+
+On **Windows** the hosts file can be found at **c:\Windows\System32\Drivers\etc\hosts** - it must be opened as administrator
 
 In the hosts file, add the line: 
 
