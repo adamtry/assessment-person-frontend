@@ -54,11 +54,7 @@ export const SearchResults = (props: myProps): JSX.Element => {
         <hr />
         <div id="searchResults">
           {results &&
-            results.length > 0 && [
-              <SearchResultsGroup
-                results={results}
-              />,
-            ]}
+            results.length > 0 && [<SearchResultsGroup results={results} />]}
         </div>
         {numberOfResults > 0 && (
           <Pagination
