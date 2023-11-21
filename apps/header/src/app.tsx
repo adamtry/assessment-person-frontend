@@ -11,12 +11,10 @@ const {
   welcome,
   signIn,
   signOut,
-  logoutJigsaw,
-  jigsawLoginLink,
   branding: { hackney, personViewer: manageMyHome },
 } = locale;
 
-const { feedbackLink, supportLink, handbookLink } = locale.betaBanner;
+const { githubLink } = locale.betaBanner;
 const { headerNavigation } = locale.a11y;
 
 const App = (): JSX.Element => {
@@ -93,19 +91,11 @@ const App = (): JSX.Element => {
           </nav>
         </div>
       </div>
-      <PhaseBanner tag="private beta" variant="green">
+      <PhaseBanner tag="development" variant="green">
         <span>
-          This is a new service -&nbsp;
-          <a href={handbookLink} target="_blank" rel="noreferrer">
-            view the handbook
-          </a>
-          , &nbsp;
-          <a href={feedbackLink} target="_blank" rel="noreferrer">
-            provide feedback
-          </a>
-          , or&nbsp;
-          <a href={supportLink} target="_blank" rel="noreferrer">
-            request support
+          This service is under development -&nbsp;
+          <a href={githubLink} target="_blank" rel="noreferrer">
+            view code repository
           </a>
         </span>
       </PhaseBanner>
