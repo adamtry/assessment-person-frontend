@@ -1,7 +1,7 @@
-# Single View Frontend
+# Person Frontend
 
-This is the frontend for Single View 2.0, a monorepo comprising micro
-frontends taken from the @mtfh scope and repurposed for Single View.
+This is the frontend for the person display system, a monorepo comprising micro
+frontends taken from Single View and ultimately the @mtfh scope and repurposed for this application.
 
 <hr>
 
@@ -34,6 +34,7 @@ https://github.com/nvm-sh/nvm
 To allow the Google authentication to work locally, you need to alias local.hackney.gov.uk to 127.0.0.1 in your local hosts file. This allows the Google authentication token to be accepted as you're on a subdomain of hackney.gov.uk.
 
 
+After each commit, [CircleCI](https://app.circleci.com/pipelines/github/LBHackney-IT/single-view-frontend) will run the cypress tests and lint checks.
 Open your hosts file, which on **Linux** and **macOS** can be done by running:
 
 `sudo open /etc/hosts`
@@ -54,20 +55,9 @@ From the root directory in the terminal, run:
 
 This may take some time to run the first time.
 
-You will also need the concurrently package:
-`yarn install concurrently`
-
 ### Add environment variables:
-Create a `.env` file in the `apps/single-view` directory
-
-Ask a code owner to get the correct .env file contents in order to run the frontend.
-
-To give the cypress tests the necessary permissions to run:
-Create a `.env` file in the `apps/common` directory
-Populate it like so:
-```
-AUTH_ALLOWED_GROUPS=single-view-uat-access,cypress-users
-```
+Copy the apps/root/.env.sample into an .env file in the same directory
+The app URLs are already set up for you, and are not considered secrets. See the [MTFH Root Microfrontend](https://github.com/LBHackney-IT/mtfh-frontend-root/blob/main/.env.sample)
 
 ## Running it locally
 
@@ -79,15 +69,7 @@ You can change which API you're pointing to from the `.env` file in `apps/single
 
 ## Running Cypress tests
 
-Run `yarn start` and in a separate terminal run `yarn cypress:open`
-
-## Setting environment variables
-
-If a new variable needs to be introduced ensure that you store it in AWS param store using this naming convention `/single-view/{env}/{env-name}`,
-Also the variable needs to be declared in the following files:
-- [apps/single-view/.env.sample](https://github.com/LBHackney-IT/single-view-frontend/blob/main/apps/single-view/.env.sample)
-- [.circleci/config.yaml](https://github.com/LBHackney-IT/single-view-frontend/blob/main/.circleci/config.yml#L233)
-- [apps/single-view/webpack.config.js](https://github.com/LBHackney-IT/single-view-frontend/blob/main/apps/single-view/webpack.config.js#L35)
+ -- TODO --
 
 ## Committing to GitHub
 ### Linting
@@ -95,7 +77,6 @@ By default, Husky will run a lint check before each commit and prevent the commi
 
 These failures can often be resolved automatically by opening a terminal, `cd`-ing into the /app/single-view directory, then running `yarn lint:fix`
 
-After each commit, [CircleCI](https://app.circleci.com/pipelines/github/LBHackney-IT/single-view-frontend) will run the cypress tests and lint checks.
 
 ## Resources
 
