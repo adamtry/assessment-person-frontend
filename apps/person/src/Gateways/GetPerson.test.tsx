@@ -1,4 +1,4 @@
-import { getPerson } from "./Person";
+import { getPerson } from "./GetPerson";
 import axios from "axios";
 jest.mock("axios", () => {
   return {

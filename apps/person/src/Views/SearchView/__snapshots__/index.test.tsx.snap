@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search View should render search view 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <h1
+        class="lbh-heading-h1"
+      >
+        Search person information
+      </h1>
+      <div
+        class="govuk-grid-row"
+      >
+        <div
+          class="govuk-grid-column-one-third"
+          style="min-width: 400px;"
+        >
+          <form>
+            <div
+              class="lbh-form-group govuk-form-group false"
+            >
+              <label
+                class="govuk-label lbh-label"
+                for="searchField"
+              >
+                Search for a person
+              </label>
+              <input
+                aria-describedby="searchField"
+                class="lbh-input govuk-input false"
+                id="searchField"
+                name="searchField"
+                type="text"
+                value="test"
+              />
+            </div>
+            <div
+              class="govuk-button-group"
+            >
+              <button
+                class="govuk-button lbh-button--secondary"
+                data-testid="clearSearchButton"
+                id="clearSearchButton"
+                type="reset"
+              >
+                Clear Search
+              </button>
+              <button
+                class="govuk-button lbh-button govuk-button--start"
+                data-testid="searchButton"
+                type="submit"
+              >
+                Search
+                <svg
+                  aria-hidden="true"
+                  class="govuk-button__start-icon"
+                  focusable="false"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  width="17.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h13l20 20-20 20H0l20-20z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div
+        id="results"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <h1
+      class="lbh-heading-h1"
+    >
+      Search person information
+    </h1>
+    <div
+      class="govuk-grid-row"
+    >
+      <div
+        class="govuk-grid-column-one-third"
+        style="min-width: 400px;"
+      >
+        <form>
+          <div
+            class="lbh-form-group govuk-form-group false"
+          >
+            <label
+              class="govuk-label lbh-label"
+              for="searchField"
+            >
+              Search for a person
+            </label>
+            <input
+              aria-describedby="searchField"
+              class="lbh-input govuk-input false"
+              id="searchField"
+              name="searchField"
+              type="text"
+              value="test"
+            />
+          </div>
+          <div
+            class="govuk-button-group"
+          >
+            <button
+              class="govuk-button lbh-button--secondary"
+              data-testid="clearSearchButton"
+              id="clearSearchButton"
+              type="reset"
+            >
+              Clear Search
+            </button>
+            <button
+              class="govuk-button lbh-button govuk-button--start"
+              data-testid="searchButton"
+              type="submit"
+            >
+              Search
+              <svg
+                aria-hidden="true"
+                class="govuk-button__start-icon"
+                focusable="false"
+                height="19"
+                viewBox="0 0 33 40"
+                width="17.5"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h13l20 20-20 20H0l20-20z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      id="results"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

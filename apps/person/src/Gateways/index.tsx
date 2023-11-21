@@ -1,2 +1,2 @@
-export * from "./Person";
+export * from "./GetPerson";
 export * from "./SearchPerson";

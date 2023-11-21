@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPerson } from "../../Gateways";
 import { UrlParams, personSearchResult } from "../../Interfaces";

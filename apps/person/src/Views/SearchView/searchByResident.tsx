@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import { SearchPerson } from "../../Gateways";
 import { Input } from "../../Components";
 import { personSearchResult } from "../../Interfaces";
-import { set } from "js-cookie";
 
 interface myProps {
   setResultsFunction: (searchResults: personSearchResult[]) => void;
