@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import { formatDate } from "@mfe/common/lib/utils";
 import { personSearchResult } from "../Interfaces";
-import { UnmergeRecordButton } from "./UnmergeRecordButton";
-import { searchPersonDataSource } from "../Utils/searchPersonDataSource";
-import { humanize } from "../Utils";
-import { isNullOrEmpty } from "../Utils/isNullOrEmpty";
+import { doc } from "prettier";
 
 interface Props {
   results: personSearchResult[];
@@ -12,52 +8,33 @@ interface Props {
 }
 
 export const SearchResultsGroup = (props: Props): JSX.Element => {
-  const [unmergeRecordPersonId, setUnmergeRecordPersonId] = useState<string>();
 
   return (
     <>
       {props.results.map((person: personSearchResult, index: number) => {
-        let recordWithUnmergeRecordPersonId: boolean =
-          person.id == unmergeRecordPersonId;
 
         return (
           <>
             <div className="lbh-body sv-result-wrapper" key={index}>
               <div className="sv-result-sub-wrapper">
                 <div className="sv-result">
-                  <a
-                    href={`/person/${person.id}`}
-                    className="lbh-link lbh-link--no-visited-state"
-                  >
+                  <strong>
                     {person.firstName} {person.lastName}
-                  </a>
+                  </strong>
                   <div className="lbh-body-s govuk-!-margin-top-1">
                     <span>
-                     <p>Hello</p>
+                     <p>{person.email}</p>
                     </span>
                   </div>
                 </div>
               </div>
-
-              {!recordWithUnmergeRecordPersonId && (
-                <button
-                  onClick={() => {
-                    setUnmergeRecordPersonId(person.id);
-                  }}
-                  className="govuk-button govuk-button--warning sv-unmerge-button"
+                <a
+                  className="govuk-button"
                   data-testid="unmerge"
+                  href={`/person/${person.id}`}
                 >
-                  Unmerge
-                </button>
-              )}
-
-              {recordWithUnmergeRecordPersonId && (
-                <UnmergeRecordButton
-                  svId={person.id}
-                  setUnmergeError={props.setUnmergeError}
-                  unmergeRecordPersonId={setUnmergeRecordPersonId}
-                />
-              )}
+                  View
+                </a>
             </div>
           </>
         );

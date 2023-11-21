@@ -36,11 +36,7 @@ const App = (): JSX.Element => {
           </Route>
           <Route path="/search">
             <SearchView
-              firstName={query.get("firstName")}
-              lastName={query.get("lastName")}
-              dateOfBirth={query.get("dateOfBirth")}
-              addressLine1={query.get("addressLine1")}
-              postCode={query.get("postCode")}
+              query={query.get("query")}
             />
           </Route>
           <Route path="/customers/:dataSource/:id">

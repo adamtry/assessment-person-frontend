@@ -1,15 +1,11 @@
 import React, { useLayoutEffect, useState } from "react";
 import { SearchByResident } from "./searchByResident";
 import { SearchResults } from "./searchResults";
-import { housingSearchPerson, personSearchResult } from "../../Interfaces";
+import { personSearchResult } from "../../Interfaces";
 import { locale } from "../../Config/locale";
 
 interface Props {
-  firstName: string | null;
-  lastName: string | null;
-  dateOfBirth: string | null;
-  addressLine1: string | null;
-  postCode: string | null;
+  query: string | null;
 }
 
 export const SearchView = (props: Props): JSX.Element => {
@@ -30,11 +26,7 @@ export const SearchView = (props: Props): JSX.Element => {
       </h1>
       <SearchByResident
         setResultsFunction={setResultsFunction}
-        firstName={props.firstName}
-        lastName={props.lastName}
-        addressLine1={props.addressLine1}
-        postCode={props.postCode}
-        dateOfBirth={props.dateOfBirth}
+        query={props.query}
       />
       <div id="results">
         {results && (

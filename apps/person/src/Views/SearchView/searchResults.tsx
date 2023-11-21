@@ -100,19 +100,6 @@ export const SearchResults = (props: myProps): JSX.Element => {
       <div className="govuk-grid-column-two-thirds">
         <div className="sv-group">
           <h2 className="lbh-heading-h3 govuk-!-margin-top-7">{`${numberOfResults} results found`}</h2>
-          <button
-            id="match-button"
-            data-testid={"match-button"}
-            disabled={selectedRecords?.length <= 1}
-            className={
-              selectedRecords?.length <= 1
-                ? "govuk-button lbh-button lbh-button--disabled govuk-button--disabled"
-                : "govuk-button lbh-button"
-            }
-            onClick={() => console.log("Delete me!")}
-          >
-            Merge {selectedRecords?.length} records
-          </button>
         </div>
         {mergeError && (
           <ErrorSummary
@@ -129,26 +116,9 @@ export const SearchResults = (props: myProps): JSX.Element => {
           />
         )}
         <hr />
-
-        <div id="matchedResults">
-          {results &&
-            results.length > 0 && [
-              <h4 className="lbh-heading-h4">
-                The following results were matched on name and date of birth, if
-                provided:
-              </h4>,
-              <SearchResultsGroup
-                results={results}
-                setUnmergeError={displayUnmergeError}
-              />,
-            ]}
-        </div>
         <div id="searchResults">
           {results &&
             results.length > 0 && [
-              <h4 className="lbh-heading-h4 govuk-!-margin-top-7">
-                The following results were partial matches:
-              </h4>,
               <SearchResultsGroup
                 results={results}
                 setUnmergeError={displayUnmergeError}
