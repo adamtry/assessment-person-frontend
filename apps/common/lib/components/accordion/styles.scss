@@ -1,7 +1,0 @@
-@import "~lbh-frontend/lbh/base";
-@import "~lbh-frontend/lbh/components/lbh-accordion/accordion";
-@import "~govuk-frontend/govuk/helpers/visually-hidden";
-
-.lbh-accordion--hide-controls .govuk-accordion__controls {
-  @include govuk-visually-hidden;
-}
