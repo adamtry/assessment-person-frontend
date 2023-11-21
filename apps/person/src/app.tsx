@@ -6,7 +6,7 @@ import {
   Redirect,
   useLocation,
 } from "react-router-dom";
-import { CustomerView, SearchView } from "./Views";
+import { PersonView, SearchView } from "./Views";
 
 import "./app.scss";
 import { NotFound } from "./Components";
@@ -39,8 +39,8 @@ const App = (): JSX.Element => {
               query={query.get("query")}
             />
           </Route>
-          <Route path="/customers/:dataSource/:id">
-            <CustomerView />
+          <Route path="/person/:id">
+            <PersonView />
           </Route>
           <Route>
             <NotFound />

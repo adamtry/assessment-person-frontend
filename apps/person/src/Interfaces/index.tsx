@@ -12,5 +12,4 @@ export * from "./jigsawCasesInterfaces";
 
 export interface UrlParams {
   id: string;
-  dataSource: string;
 }
